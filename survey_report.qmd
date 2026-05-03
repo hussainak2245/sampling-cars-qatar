@@ -1,4 +1,245 @@
 ---
-title: "Survey Analysis Report"
-date: "2024-06-01"
+title: "From Sirens to Social Media: Qatar University Students & the Iranian Attacks"
+subtitle: "Phase 1: Questionnaire Development and Peer Validation"
+author: "Hussain Ahamed & Yudha Akbar"
+date: "2026-04-29"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    theme: default
+    fontsize: 8pt
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
+
+\newpage
+```{r setup, include=FALSE}
+set.seed(123)
+library(tidyverse)
+library(knitr)
+```
+
+## Introduction
+
+### Background
+
+Recent geopolitical tensions in the Middle East led to missile and drone attacks targeting strategic locations in the Gulf region, including Qatar. These events triggered widespread public concern, with emergency alert systems activated across the country. Residents received repeated mobile alerts, while universities transitioned to remote learning and authorities enforced strict safety directives.
+
+For some university students, this period was marked not only by physical disruptions but also by psychological stress. The sounds of missile interceptions, uncertainty about safety, and continuous exposure to news and social media created a complex information and emotional environment. In particular, platforms such as *Al Jazeera*, WhatsApp, Instagram, and Twitter played a critical role in shaping perceptions, often mixing reliable updates with misinformation.
+
+Understanding how students perceived the threat, responded to emergency alerts, consumed media, and complied with safety measures is essential. These insights can inform future crisis communication strategies, improve emergency alert systems, and enhance public safety policies.
+
+### Objective
+
+The objective of this project is to develop a questionnaire and validate it to assess university students’ perceptions and behaviors during the Iranian attacks in Qatar, focusing on four key constructs:
+
+-   Emotional Threat Perception  
+-   Emergency Alert System Perception  
+-   News & Media Perception  
+-   Behavioral Compliance  
+
+## Target Population and Sampling Design
+
+### Target Population
+
+The target population for this study is undergraduate university students in Qatar. The study focuses on students enrolled in major institutions, including:
+
+- Qatar University (QU)  
+- University of Doha for Science and Technology (UDST)  
+- Qatar Foundation (Education City universities)  
+
+Based on available institutional data from Qatar Open Data Portal (https://www.data.gov.qa/explore/dataset/), the approximate population sizes are:
+
+| Institution | Approximate Students |
+|------------|--------------------|
+| Qatar University | ~23,000 |
+| UDST | ~8,000 |
+| Qatar Foundation Universities | ~4,000 |
+| **Total (Estimated)** | **~35,000** |
+
+This population represents a substantial portion of the university student body in Qatar and is considered a reasonable approximation for the purpose of this study.
+
+### Population Characteristics
+
+Available datasets suggest that the student population is diverse, particularly in terms of:
+
+- **Nationality (Qatari vs. non-Qatari residents)**
+- **Institutional affiliation**
+
+This indicates that student perceptions may vary across these groups, and therefore, a sampling design that ensures representation across key subgroups is desirable.
+
+
+
+### Proposed Sampling Method
+
+In an ideal setting, **Simple Random Sampling (SRS)** would be used to obtain a representative sample. However, this would require access to a complete sampling frame (i.e., a full list of all university students in Qatar), which is not available.
+
+Therefore, for this study, a **quota-based sampling approach is proposed**.
+
+### Rationale
+
+- Ensures inclusion of students from different universities  
+- Accounts for variation in population sizes across institutions  
+- Provides more balanced representation than pure convenience sampling  
+
+
+###  Proposed Quota Structure
+
+To approximate the population distribution, quotas are defined based on institution:
+
+| Institution | Approximate Share | Proposed Sample (n = 100) |
+|------------|----------------|--------------------------|
+| Qatar University | ~66% | 66 |
+| UDST | ~23% | 23 |
+| Qatar Foundation | ~11% | 11 |
+
+In addition, an approximate balance across **nationality (Qatari vs. resident)** is considered to ensure diversity in responses.
+
+
+###  Within-Quota Sampling
+
+Within each quota group, responses would be collected using **convenience sampling**, such as:
+
+- Online survey distribution  
+- Student networks and peer sharing  
+
+Thus, the overall design can be described as a:
+
+> **Quota-based non-probability sampling approach with convenience selection within groups**
+
+\newpage
+
+### Proposed Data Collection Phases
+
+| Phase | Description |
+|------|------------|
+| Phase 1 | Questionnaire development |
+| Phase 2 | Peer validation and refinement |
+| Phase 3 | Pilot distribution |
+| Phase 4 | Main data collection (target n = 100) |
+| Phase 5 | Basic analysis and interpretation |
+
+
+
+### Limitations of the Proposed Design
+
+- Non-probability sampling limits statistical generalizability  
+- Convenience sampling may introduce response bias  
+- Small sample size increases variability  
+
+Despite these limitations, the proposed design provides a **practical and structured approach** suitable for exploratory analysis within a course setting.
+
+
+
+\newpage
+## Peer Validation Analysis
+
+### Overview
+
+The questionnaire was evaluated by peer groups to assess the **clarity** and **relevance** of each item. Each question was rated on a scale from 1 (low) to 5 (high).
+
+A total of **4 peer reviewers** evaluated all items across the four constructs.
+
+### Overall Results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+table <- data.frame(
+  Item = c("B1", "B2", "B3", "B4", "B5",
+           "C1", "C2", "C3", "C4", "C5",
+           "D1", "D2", "D3", "D4", "D5",
+           "E1", "E2", "E3", "E4", "E5"),
+
+  Avg_Clarity = c(3.25, 4.5, 5.0, 4.75, 4.5,
+                  4.75, 4.75, 4.25, 4.0, 5.0,
+                  4.0, 5.0, 5.0, 5.0, 5.0,
+                  5.0, 4.5, 5.0, 4.75, 4.0),
+
+  Avg_Relevance = c(3.5, 4.5, 4.75, 4.5, 4.5,
+                    4.25, 4.25, 4.5, 4.0, 5.0,
+                    4.0, 5.0, 5.0, 5.0, 4.75,
+                    4.75, 3.75, 5.0, 4.0, 4.0),
+
+  Peer_Comments = c(
+    "Revised: Item reworded to improve clarity and reduce overly strong emotional phrasing.",
+    "Retained: No major issues identified; item is clear and relevant.",
+    "Retained: Item demonstrates high clarity and relevance.",
+    "Retained: No significant concerns raised during validation.",
+    "Retained: Item is well-structured and appropriate for the construct.",
+
+    "Retained: Clear and relevant measure of alert system effectiveness.",
+    "Retained: Wording is precise and easily understandable.",
+    "Retained: Minor variation in clarity, but overall acceptable.",
+    "Revised: Replaced with a more relevant item focusing on guidance effectiveness rather than disruption.",
+    "Retained: Strong item capturing an important behavioral response perspective.",
+
+    "Revised: Expanded to include multiple information sources (news, social media, messaging) for broader applicability.",
+    "Retained: Item is clearly focused and well-aligned with the construct.",
+    "Retained: Demonstrates high clarity and strong relevance.",
+    "Retained: No issues identified; item performs well.",
+    "Retained: Relevant and clearly understood by reviewers.",
+
+    "Retained: Strong item capturing compliance behavior.",
+    "Retained: Item is appropriate; minor suggestion noted for improved contextual linkage with preceding item.",
+    "Retained: No major concerns; item is clear and relevant.",
+    "Retained: Clear wording and appropriate construct alignment.",
+    "Revised: Clarified the reference to penalties and fines to improve specificity and interpretability."
+  )
+)
+
+kable(table, caption = "Peer Validation Results for Questionnaire Items")
+```
+
+```{r construct_summary, echo=FALSE, message=FALSE, warning=FALSE}
+construct_summary <- data.frame(
+  Construct = c("Emotional Threat Perception", "Emergency Alert System Perception", "News & Media Perception", "Behavioral Compliance"),
+  Avg_Clarity = c(mean(table$Avg_Clarity[1:5]), mean(table$Avg_Clarity[6:10]), mean(table$Avg_Clarity[11:15]), mean(table$Avg_Clarity[16:20])),
+  Avg_Relevance = c(mean(table$Avg_Relevance[1:5]), mean(table$Avg_Relevance[6:10]), mean(table$Avg_Relevance[11:15]), mean(table$Avg_Relevance[16:20]))
+)
+kable(construct_summary, caption = "Average Clarity and Relevance Scores by Construct")
+```
+
+### Items Removed or Revised After Peer Validation
+No item was highly irrelevant overall; however, the lowest-scoring or unclear item in each affected construct was revised. This keeps the required 5 Likert items per construct while improving validity.
+
+
+```{r revised_items, echo=FALSE, message=FALSE, warning=FALSE}
+table2 <- data.frame(
+  Item = c("B1", "C4", "D1", "E2", "E5"),
+
+  Original_Issue = c(
+    "When the attacks first happened, I felt genuinely scared for my safety",
+    "Receiving repeated alerts became overwhelming and disrupted my daily plans",
+    "I was constantly checking my phone for updates during the crisis",
+    "I understood why the photography and filming bans were necessary",
+    "The penalties and fines for breaking safety rules were valid and reasonable"
+  ),
+
+  Action = c(
+    "Reworded to improve clarity and reduce overly strong emotional phrasing.",
+    "Replaced with a more relevant item focusing on action guidance rather than disruption.",
+    "Expanded to include multiple information sources beyond phone usage.",
+    "Enhanced by adding context and linking the rule to actual behavior.",
+    "Clarified to specify the type of penalties and improve interpretability."
+  ),
+
+  Updated_Wording = c(
+    "When the attacks first happened, I felt scared and concerned about my personal safety.",
+    "The alerts helped me decide what actions to take during the crisis.",
+    "I frequently checked news, social media, or messages for updates during the crisis.",
+    "I was aware that photographing or filming interceptions or restricted areas was banned, and I avoided doing so.",
+    "The penalties for breaking safety rules, such as filming restricted incidents, were valid and reasonable."
+  )
+)
+
+kable(table2, caption = "Refinements Made Based on Peer Validation Feedback")
+```
+
+
+
+### Conclusion
+
+Overall, the proposed sampling strategy balances statistical reasoning with practical constraints. While the use of quota-based non-probability sampling limits formal generalizability, the proportional allocation across institutions and monitoring of key demographic characteristics help improve the representativeness of the sample. 
+
